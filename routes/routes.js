@@ -28,7 +28,7 @@ ProductRouter.post('/create',async(req,res)=>{
 ProductRouter.delete('/delete/:id',async(req,res)=>{
     const ID = req.params.id
     try{
-            await ProductModel.findByIdAndUpdate({_id:ID})
+            await ProductModel.findByIdAndDelete({_id:ID})
         res.send(`Deleted the note with id - ${ID}`)
         }
         
