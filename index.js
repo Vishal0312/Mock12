@@ -1,9 +1,7 @@
 const express = require('express')
 const {connection} = require('./config/db')
 const app = express()
-const { UserRouter } = require('./routes/user.routes')
-const {NoteRouter} = require('./routes/note.routes')
-const { authenticator } = require('./middleware/authenticator.middleware')
+const { ProductRouter } = require('./routes/routes')
 require('dotenv').config()
 const cors = require('cors')
 
@@ -17,9 +15,8 @@ app.get('/',(req,res)=>{
 
     res.send("Welcome to my world")
 })
-app.use("/user",UserRouter)
-app.use(authenticator)
-app.use("/note",NoteRouter)
+
+app.use("/product",ProductRouter)
 
 
 
